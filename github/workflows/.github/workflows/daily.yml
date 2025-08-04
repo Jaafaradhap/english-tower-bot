@@ -2,7 +2,7 @@ name: Daily English Lesson Bot
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # كل 5 دقائق (لتجربة سريعة)
+    - cron: '0 7 * * *'  # كل يوم الساعة 7 صباحًا UTC (يعني 10 صباحًا بتوقيت بغداد)
   workflow_dispatch:
 
 jobs:
