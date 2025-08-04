@@ -1,0 +1,24 @@
+{
+  "words": ["example", "conversation", "improve", "vocabulary", "fluency"],
+  "sentences": [
+    "This is an example sentence.",
+    "How can I improve my English?",
+    "Practice makes perfect.",
+    "She reads books every day.",
+    "Can you help me, please?"
+  ],
+  "rules": [
+    "Use present simple for routines.",
+    "Adjectives come before nouns.",
+    "Use 'do' and 'does' for questions in present simple.",
+    "Don't forget the 's' with he/she/it.",
+    "Use 'will' for future predictions."
+  ],
+  "texts": [
+    "Learning a new language opens doors to new opportunities.",
+    "Practice every day to improve your speaking and writing.",
+    "Listening to English podcasts can boost your comprehension.",
+    "Don't be afraid to make mistakes while learning.",
+    "Reading helps you see grammar and vocabulary in context."
+  ]
+}
