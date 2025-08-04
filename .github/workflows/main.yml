@@ -1,0 +1,28 @@
+name: Daily English Lesson Bot
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # يشغل كل 5 دقائق (يمكن تغييره لوقت مناسب لاحقًا)
+  workflow_dispatch:       # يسمح بالتشغيل اليدوي من صفحة Actions
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run the bot script
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+        run: python bot.py
