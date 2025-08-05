@@ -1,27 +1,25 @@
-
+import os
 import requests
-from datetime import datetime
 
-TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
-CHAT_ID = "YOUR_CHAT_ID"
+# جلب التوكن والمعرف من متغيرات البيئة
+TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 
-def send_message(text):
-    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-    payload = {
-        "chat_id": CHAT_ID,
-        "text": text,
-        "parse_mode": "Markdown"
-    }
-    requests.post(url, data=payload)
+# الرسالة التي سيتم إرسالها (يمكنك تعديلها)
+message = "🌟 Word of the Day 🌟\n\nResilient (adj.): able to recover quickly from difficulties\n\n🔁 Stay resilient and keep learning!"
 
-def daily_lesson():
-    now = datetime.now().strftime("%Y-%m-%d")
-    text = f"📘 *English Tower Daily Lesson - {now}*\n\n"
-    text += "🔤 *Word of the Day*: inspiration\n"
-    text += "🗣️ *Phrase*: Follow your dreams.\n"
-    text += "❓ *Question*: What motivates you to learn English?\n"
-    text += "📖 *Short Text*:\nNever stop learning. Every day brings a new chance to improve."
-    send_message(text)
+# رابط API الخاص بإرسال الرسائل
+url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 
-if __name__ == "__main__":
-    daily_lesson()
+# إعداد البيانات المطلوبة
+payload = {
+    "chat_id": CHAT_ID,
+    "text": message
+}
+
+# إرسال الرسالة
+response = requests.post(url, data=payload)
+
+# طباعة الاستجابة لتسهيل التصحيح
+print("Status Code:", response.status_code)
+print("Response:", response.text)
